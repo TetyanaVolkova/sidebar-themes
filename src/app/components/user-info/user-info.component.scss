@@ -1,0 +1,46 @@
+#user_info_container {
+  height: 85px;
+  width: 95%;
+  display: flex;
+  margin: 8px;
+  border-radius: 4px;
+  #avatar img {
+    height: 60px;
+    width: auto;
+    border: 4px solid transparent;
+    border-radius: 40px;
+  }
+  #user_info {
+    margin: 12px 0 0 12px;;
+    display: flex;
+    flex-direction: column;
+    max-width: 85%;
+    width: 100%;
+    #user_name {
+      display: flex;
+      width: 100%;
+      h1 {
+        margin: 0;
+        font-size: 18px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: inline-block;
+        width: calc(80%);
+      }
+    }
+    #user_email {
+      display: flex;
+      width: 100%;
+      p {
+        margin: 0;
+        font-size: 15px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: inline-block;
+        width: calc(90%);
+      }
+    }
+  }
+}

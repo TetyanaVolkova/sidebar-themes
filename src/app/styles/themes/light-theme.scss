@@ -1,0 +1,30 @@
+@use '@angular/material' as material;
+@use '../shared/app-palettes';
+@use '../shared/utils';
+
+$theme-color-config: (
+  primary: material.define-palette(app-palettes.$app-blue-palette, 600, 200, 900),
+  accent: material.define-palette(app-palettes.$app-brown-palette, 300, 100, 700),
+  warn: material.define-palette(app-palettes.$app-red-palette, 700, 500, 900),
+);
+
+$colors-to-patch: (
+  background: (
+    background: material.get-color-from-palette(material.$gray-palette, 200)
+  ),
+  foreground: (
+    text: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    elevation: rgb(131, 131, 136),
+  ),
+  success: material.define-palette(material.$light-green-palette)
+);
+
+$app-theme: material.define-light-theme(
+  utils.with-core-config($theme-color-config)
+);
+
+$patched-app-theme: utils.override-colors($app-theme, $colors-to-patch);
+
+@mixin apply-light-theme() {
+  @include utils.create-theme-bundle($patched-app-theme)
+}

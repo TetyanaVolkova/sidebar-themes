@@ -1,0 +1,24 @@
+@use '@angular/material' as material;
+@use '../shared/app-palettes';
+@use '../shared/utils';
+
+$theme-color-config: (
+  primary: material.define-palette(material.$blue-grey-palette, 300),
+  accent: material.define-palette(material.$green-palette, 800),
+  warn: material.define-palette(material.$red-palette, 800),
+  is-dark: true
+);
+
+$colors-to-patch: (
+  success: material.define-palette(material.$teal-palette)
+);
+
+$app-theme: material.define-dark-theme(
+  utils.with-core-config($theme-color-config)
+);
+
+$patched-app-theme: utils.override-colors($app-theme, $colors-to-patch);
+
+@mixin apply-dark-theme() {
+  @include utils.create-theme-bundle($patched-app-theme);
+};

@@ -1,7 +1,29 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import {importProvidersFrom} from '@angular/core';
+import {bootstrapApplication} from '@angular/platform-browser';
+import {provideHttpClient} from '@angular/common/http';
+import {provideAnimations} from '@angular/platform-browser/animations';
+import {VERSION as CDK_VERSION} from '@angular/cdk';
+import {MATERIAL_SANITY_CHECKS, VERSION as MAT_VERSION, MatNativeDateModule} from '@angular/material/core';
+import { AppComponent } from './app/app.component';
+import { routes } from './app/app-routing.module'
+import { provideRouter } from '@angular/router';
 
-import { AppModule } from './app/app.module';
+/* eslint-disable no-console */
+console.info('Angular CDK version', CDK_VERSION.full);
+console.info('Angular Material version', MAT_VERSION.full);
 
-
-platformBrowserDynamic().bootstrapModule(AppModule)
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideAnimations(),
+    provideHttpClient(),
+    importProvidersFrom(MatNativeDateModule),
+    provideRouter(routes),
+    {
+      provide: MATERIAL_SANITY_CHECKS,
+      useValue: {
+        theme: false
+      }
+    }
+  ]
+})
   .catch(err => console.error(err));

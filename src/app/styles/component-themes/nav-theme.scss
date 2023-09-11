@@ -1,0 +1,117 @@
+@use '@angular/material' as mat;
+@use '@material/density';
+
+@mixin _apply-nav-styles($color) {
+  & mat-card, & a {
+    @include mat.overridable-elevation(3, mat.get-color-from-palette($color, 900));
+  }
+  & a:active {
+    @include mat.overridable-elevation(2, mat.get-color-from-palette($color, 700));
+  }
+  a {
+    background-color: mat.get-color-from-palette($color, 50);
+    color: mat.get-color-from-palette($color, 50-contrast);
+          &:active {
+              color: mat.get-color-from-palette($color, 800);
+          }
+          &:hover {
+            background-color: mat.get-color-from-palette($color, 200);
+          }
+  }
+  .active {
+      background-color: mat.get-color-from-palette($color, 100);
+  }
+  .dark-theme {
+    & mat-card, & a {
+      @include mat.overridable-elevation(3, mat.get-color-from-palette($color, 900));
+    }
+    & a:active {
+      @include mat.overridable-elevation(2, mat.get-color-from-palette($color, 700));
+    }
+    a {
+      background-color: mat.get-color-from-palette($color, 800);
+      color: mat.get-color-from-palette($color, 800-contrast);
+            &:active {
+                color: mat.get-color-from-palette(mat.$blue-gray-palette, 900);
+            }
+            &:hover {
+              background-color: mat.get-color-from-palette($color, 900);
+            }
+    }
+    .active {
+        background-color: mat.get-color-from-palette($color, 900);
+    }
+  }
+}
+
+@mixin color($color-config) {
+  $primary-color: mat.get-color-from-palette($color-config, primary);
+  $accent-color: mat.get-color-from-palette($color-config, accent);
+  $warn-color: mat.get-color-from-palette($color-config, warn);
+  $success-color: mat.get-color-from-palette($color-config, success);
+
+  app-nav.primary-nav {
+   @include _apply-nav-styles($primary-color);
+  }
+
+  app-nav.accent-nav {
+    @include _apply-nav-styles($accent-color);
+  }
+
+  app-nav.warn-nav {
+    @include _apply-nav-styles($warn-color);
+  }
+
+  @if $success-color != null {
+    app-nav.success-nav {
+      @include _apply-nav-styles($success-color);
+    }
+  }
+}
+
+@mixin typography($typography-config) {
+  app-nav {
+    a h1 {
+      // font-size: mat.font-size($typography-config, headline-6);
+      // font-weight: mat.font-weight($typography-config, headline-6);
+      // Or
+      @include mat.typography-level($typography-config, headline-6);
+    }
+  }
+}
+
+@mixin density($density-scale) {
+  $density-config: (
+    height: (
+      default: 40px,
+      minimum: 30px,
+      maximum: 45px
+    )
+  );
+  app-nav {
+    a {
+      height: density.prop-value($density-config, $density-scale, height)
+    }
+  }
+}
+
+@mixin theme($theme-config) {
+  // Uncomment to debug theme config
+  @debug $theme-config;
+
+  $color-config: mat.get-color-config($theme-config);
+  $typography-config: mat.get-typography-config($theme-config);
+  $density-config: mat.get-density-config($theme-config);
+
+  @if $color-config != null {
+    @include color($color-config)
+  }
+
+  @if $typography-config != null {
+    @include typography($typography-config)
+  }
+
+  @if $density-config != null {
+    @include density($density-config)
+  }
+}

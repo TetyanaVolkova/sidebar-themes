@@ -1,0 +1,25 @@
+.sidenav-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    mat-sidenav {
+        max-width: 60%;
+        min-width: 65px;
+        width: 310px;
+        cursor: text;
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 100%;
+            width: 8px;
+            cursor: e-resize;
+        }
+    }
+    &::ng-deep .mat-drawer-inner-container {
+      overflow: hidden;
+    }
+}

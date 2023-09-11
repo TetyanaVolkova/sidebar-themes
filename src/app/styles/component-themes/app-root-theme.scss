@@ -1,0 +1,42 @@
+@use '@angular/material' as mat;
+
+@mixin _apply-app-root-styles($color) {
+  // .mat-drawer-backdrop.mat-drawer-shown {
+  //   background-color: mat.get-color-from-palette($color, 50);
+  //   color: mat.get-color-from-palette($color, 50-contrast);
+  // }
+  .dark-theme {
+    // .mat-drawer-backdrop.mat-drawer-shown {
+    //   background-color: #545252;
+    //   color: mat.get-color-from-palette($color, 500-contrast);
+    // }
+  }
+}
+
+@mixin color($color-config) {
+  $primary-color: mat.get-color-from-palette($color-config, primary);
+  $accent-color: mat.get-color-from-palette($color-config, accent);
+  $warn-color: mat.get-color-from-palette($color-config, warn);
+
+  app-root.primary-root {
+   @include _apply-app-root-styles($primary-color);
+  }
+
+  app-root.accent-root {
+    @include _apply-app-root-styles($accent-color);
+  }
+
+  app-root.warn-root {
+    @include _apply-app-root-styles($warn-color);
+  }
+}
+
+@mixin theme($theme-config) {
+
+  $color-config: mat.get-color-config($theme-config);
+
+  @if $color-config != null {
+    @include color($color-config)
+  }
+}
+

@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as material;
+@use './app/styles/themes/light-theme.scss';
+@use './app/styles/themes/dark-theme.scss';
+
+@include material.core();
+
+@include light-theme.apply-light-theme();
+
+// Dark theme
+// Include the dark color styles inside of a block with a CSS class. Any component inside of an element with
+// `.dark-theme` will be affected by this alternate dark theme instead of the default theme.
+
+.dark-theme {
+    @include dark-theme.apply-dark-theme();
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}

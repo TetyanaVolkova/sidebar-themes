@@ -1,0 +1,101 @@
+@use '@angular/material' as material;
+
+$app-blue-palette: (
+  50: #f2f7fa,
+  100: #e2f0fc,
+  200: #90caf9,
+  300: #64b5f6,
+  400: #42a5f5,
+  500: #2095f3,
+  600: #1e87e5,
+  700: #1976d2,
+  800: #1564c0,
+  900: #0d46a1,
+  contrast: (
+    50: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    100: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    200: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    300: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    400: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    500: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    600: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    700: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    800: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    900: material.get-color-from-palette(material.$blue-gray-palette, 50)
+  )
+);
+
+$app-brown-palette: (
+  50: #fff3e0,
+  100: #ffe0b2,
+  200: #ffcc80,
+  300: #ffb74d,
+  400: #ffa726,
+  500: #ff9800,
+  600: #fb8c00,
+  700: #f57c00,
+  800: #ef6c00,
+  900: #e65100,
+  contrast: (
+    50: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    100: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    200: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    300: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    400: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    500: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    600: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    700: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    800: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    900: material.get-color-from-palette(material.$blue-gray-palette, 50)
+  )
+);
+
+$app-red-palette: (
+  50: #ffebee,
+  100: #ffcdd2,
+  200: #ef9a9a,
+  300: #e57373,
+  400: #ef5350,
+  500: #f44336,
+  600: #e53935,
+  700: #d32f2f,
+  800: #c62828,
+  900: #b71c1c,
+  contrast: (
+    50: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    100: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    200: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    300: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    400: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    500: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    600: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    700: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    800: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    900: material.get-color-from-palette(material.$blue-gray-palette, 50)
+  )
+);
+
+$app-green-palette: (
+  50: #f1f8e9,
+  100: #dcedc8,
+  200: #c5e1a5,
+  300: #aed581,
+  400: #9ccc65,
+  500: #8bc34a,
+  600: #7cb342,
+  700: #689f38,
+  800: #558b2f,
+  900: #33691e,
+  contrast: (
+    50: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    100: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    200: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    300: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    400: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    500: material.get-color-from-palette(material.$blue-gray-palette, 900),
+    600: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    700: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    800: material.get-color-from-palette(material.$blue-gray-palette, 50),
+    900: material.get-color-from-palette(material.$blue-gray-palette, 50)
+  )
+);

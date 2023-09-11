@@ -1,0 +1,42 @@
+<mat-card id="nav_container">
+    <a mat-list-item mat-button [routerLink]="'/dashboard'" [routerLinkActive]="'active'">
+        <span class="material-icons">
+          dashboard
+        </span>
+        <h1 class="mat-h6">Dashboard</h1>
+    </a>
+    <a mat-list-item mat-button [routerLink]="'/reports'" [routerLinkActive]="'active'">
+        <span class="material-icons">
+          multiline_chart
+          </span>
+        <h1>
+            Stats and Reports
+        </h1>
+    </a>
+    <a mat-list-item mat-button [routerLink]="'/contacts'" [routerLinkActive]="'active'">
+        <span class="material-icons">
+        contacts
+        </span>
+        <h1>Contacts</h1>
+    </a>
+    <a mat-list-item mat-button [routerLink]="'/surveys'" [routerLinkActive]="'active'">
+        <span class="material-icons">
+          event_available
+        </span>
+        <h1>Surveys</h1>
+    </a>
+    <a mat-list-item mat-button [routerLink]="'/activities'" [routerLinkActive]="'active'">
+        <span class="material-icons">
+          view_kanban
+
+        </span>
+        <h1>Activities</h1>
+    </a>
+    <a mat-list-item mat-button [routerLink]="'/issues'" [routerLinkActive]="'active'">
+        <span class="material-icons">
+          bug_report
+        </span>
+        <h1>Issues</h1>
+    </a>
+    <!-- <a class="mat-elevation-z3"></a> -->
+</mat-card>

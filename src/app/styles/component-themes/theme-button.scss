@@ -1,0 +1,39 @@
+@use '@angular/material' as mat;
+
+@mixin _apply-app-theme-button-styles($color) {
+  #position_fixed svg {
+    fill: mat.get-color-from-palette($color, 800);
+  }
+  .dark-theme#position_fixed {
+    .button_handle svg {
+      fill: mat.get-color-from-palette($color, 400);
+    }
+  }
+}
+
+@mixin color($color-config) {
+  $primary-color: mat.get-color-from-palette($color-config, primary);
+  $accent-color: mat.get-color-from-palette($color-config, accent);
+  $warn-color: mat.get-color-from-palette($color-config, warn);
+
+  app-theme-button.primary-theme {
+   @include _apply-app-theme-button-styles($primary-color);
+  }
+
+  app-theme-button.accent-theme {
+    @include _apply-app-theme-button-styles($accent-color);
+  }
+
+  app-theme-button.warn-theme {
+    @include _apply-app-theme-button-styles($warn-color);
+  }
+}
+
+@mixin theme($theme-config) {
+  $color-config: mat.get-color-config($theme-config);
+
+  @if $color-config != null {
+    @include color($color-config)
+  }
+}
+

@@ -1,0 +1,26 @@
+:host {
+    mat-card {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 8px;
+        padding: 4px;
+        a {
+            width: 97%;
+            text-decoration: none;
+            display: flex;
+            margin: auto;
+            border-radius: 6px;
+            outline: 0;
+            h1 {
+                white-space: nowrap;
+                margin: auto 12px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            .material-icons {
+                margin: auto 8px;
+            }
+        }
+    }
+}

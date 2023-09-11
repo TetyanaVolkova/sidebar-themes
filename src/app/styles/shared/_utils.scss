@@ -1,0 +1,44 @@
+@use '@angular/material' as mat;
+// This line of code removing warning from console
+mat.$theme-ignore-duplication-warnings: true;
+
+@use 'sass:map';
+
+// import custom theme. Add your custom themes here
+@use '../component-themes/nav-theme.scss' as navTheme;
+@use '../component-themes/app-root-theme.scss' as appRootTheme;
+@use '../component-themes/theme-button.scss' as themeButton;
+
+@function with-core-config($color-config) {
+  @return (
+    color: $color-config,
+    typography :mat.define-typography-config(
+      $font-family: 'Open Sans',
+      $headline-6: mat.define-typography-level(17px, 20px, 400),
+    ),
+    density: maximum
+  )
+};
+
+@function override-colors($theme, $overriding-colors: ()) {
+  @return map.deep-merge($theme, (
+    color: $overriding-colors
+  ))
+};
+
+@mixin create-theme-bundle($theme-config) {
+  // @include mat.all-component-themes($theme-config);
+  // all-component-themes include all mixins
+  // to make bundle size smaller we can include components we use independently as so
+  @include mat.core-theme($theme-config);
+  @include mat.card-theme($theme-config);
+  @include mat.toolbar-theme($theme-config);
+  @include mat.button-theme($theme-config);
+  @include mat.sidenav-theme($theme-config);
+  @include mat.icon-button-theme($theme-config);
+
+  // custom component themes...
+  @include navTheme.theme($theme-config);
+  @include appRootTheme.theme($theme-config);
+  @include themeButton.theme($theme-config);
+}

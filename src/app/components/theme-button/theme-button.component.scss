@@ -1,0 +1,15 @@
+#position_fixed {
+  display: block;
+  position: fixed;
+  bottom: 12px;
+  left: 8px;
+  z-index: 999;
+  .button_handle {
+    position: absolute;
+    top: -15px;
+    left: 12px;
+    cursor: move;
+    width: 24px;
+    height: 24px;
+  }
+}
