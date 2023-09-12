@@ -44,7 +44,7 @@ const censusAas = new CensusAas({
 })
 export class AppComponent {
 
-  @Input() type: ThemePalette = 'primary';
+  @Input() type: ThemePalette = 'warn';
   @HostBinding('class')
   get hostClass() {
     return `${this.type}-root`
@@ -67,6 +67,24 @@ export class AppComponent {
     * @param event
     */
   onResizeEnd(event: ResizeEvent): void {
+    const userInfo = document.getElementById('user_info_container');
+    console.log(event)
+    if(event.rectangle.right < 220 && event.edges.right as number < 0) {
+      this.resizeStyle = {
+        left: `0px`,
+        width: `70px`,
+      };
+    userInfo?.classList.add('small_image');
+      return;
+    }
+    if(event.rectangle.right < 220 && event.edges.right as number > 0) {
+      this.resizeStyle = {
+        left: `0px`,
+        width: `220px`,
+      };
+      userInfo?.classList.remove('small_image');
+      return;
+    }
     this.resizeStyle = {
       left: `${event.rectangle.left}px`,
       width: `${event.rectangle.width}px`,

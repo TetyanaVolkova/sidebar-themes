@@ -1,0 +1,13 @@
+:host {
+  height: 100%;
+  display: flex;
+  mat-card {
+    margin: auto;
+    width: 98%;
+    height: 99%;
+    padding: 20px;
+    mat-card-content {
+      height: 100%;
+    }
+  }
+}

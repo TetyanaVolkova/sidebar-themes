@@ -1,10 +1,25 @@
 @use '@angular/material' as mat;
 
 @mixin _apply-app-root-styles($color) {
-  // .mat-drawer-backdrop.mat-drawer-shown {
-  //   background-color: mat.get-color-from-palette($color, 50);
-  //   color: mat.get-color-from-palette($color, 50-contrast);
-  // }
+  *::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    /* width of the entire scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+    background: mat.get-color-from-palette($color, 50);
+    /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: mat.get-color-from-palette($color, 100);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 2px solid mat.get-color-from-palette($color, 200);
+    /* creates padding around scroll thumb */
+}
   .dark-theme {
   }
 }

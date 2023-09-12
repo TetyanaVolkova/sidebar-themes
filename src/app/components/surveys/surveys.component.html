@@ -1,14 +1,14 @@
-<mat-card>
+<app-mat-card title="Ag-Grid table example" subtitle="Community version">
   <!-- AG Grid Angular Component -->
   <ag-grid-angular
-      style="width: 100%; height: 100%"
-      class="ag-theme-alpine"
-      [columnDefs]="columnDefs"
-      [defaultColDef]="defaultColDef"
-      [rowData]="rowData$ | async"
-      [rowSelection]="'multiple'"
-      [animateRows]="true"
-      (gridReady)="onGridReady($event)"
-      (cellClicked)="onCellClicked($event)"
-    ></ag-grid-angular>
-</mat-card>
+    style="width: 98%; height: 100%"
+    class="ag-theme-alpine"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [rowData]="rowData$ | async"
+    [rowSelection]="'multiple'"
+    [animateRows]="true"
+    (gridReady)="onGridReady($event)"
+    (cellClicked)="onCellClicked($event)"
+  ></ag-grid-angular>
+</app-mat-card>

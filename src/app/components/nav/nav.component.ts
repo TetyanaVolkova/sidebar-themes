@@ -18,7 +18,7 @@ import { ThemePalette } from '@angular/material/core';
   ]
 })
 export class NavComponent {
-  @Input() type: ThemePalette | 'success' = 'primary';
+  @Input() type: ThemePalette | 'success' = 'warn';
   @HostBinding('class')
   get hostClass() {
     return `${this.type}-nav`

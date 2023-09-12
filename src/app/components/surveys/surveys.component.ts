@@ -1,17 +1,17 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
 import { AgGridModule } from 'ag-grid-angular';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { MatCardModule } from '@angular/material/card';
 import { faker } from "@faker-js/faker";
+import { AppMatCardComponent } from '../app-mat-card/app-mat-card.component';
 
 @Component({
   selector: 'app-surveys',
   standalone: true,
-  imports: [CommonModule, AgGridModule, MatCardModule],
+  imports: [CommonModule, AgGridModule, AppMatCardComponent],
   templateUrl: './surveys.component.html',
   styleUrls: ['./surveys.component.scss']
 })
@@ -53,7 +53,7 @@ export class SurveysComponent {
         data.forEach((element) => {
           id ++;
           element.id = id;
-          element.available = true;
+          element.available = !Math.round(Math.random());
           element.date = new Date(+(new Date()) - Math.floor(Math.random() * 10000000000));
           element.comments = faker.company.catchPhrase()
         })
