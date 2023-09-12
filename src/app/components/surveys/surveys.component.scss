@@ -1,0 +1,17 @@
+
+:host {
+  height: 100%;
+  display: flex;
+  mat-card {
+    height: 99%;
+    margin: auto;
+    padding: 20px;
+    width: 98%;
+    .ag-header-container {
+      width: 100%;
+      .ag-header-row, .ag-header-row-column {
+        width: 100%;
+      }
+    }
+  }
+}

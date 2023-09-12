@@ -1,12 +1,16 @@
 @use '@angular/material' as mat;
 
 @mixin _apply-app-theme-button-styles($color) {
-  #position_fixed svg {
-    fill: mat.get-color-from-palette($color, 800);
+  #position_fixed {
+    background: mat.get-color-from-palette(mat.$grey-palette, 300);
+    svg {
+      fill: mat.get-color-from-palette(mat.$grey-palette, 600);
+    }
   }
   .dark-theme#position_fixed {
+    background: mat.get-color-from-palette(mat.$grey-palette, 700);
     .button_handle svg {
-      fill: mat.get-color-from-palette($color, 400);
+      fill: mat.get-color-from-palette(mat.$grey-palette, 500);
     }
   }
 }

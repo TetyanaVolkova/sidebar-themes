@@ -7,7 +7,7 @@
     mat-sidenav {
         max-width: 60%;
         min-width: 65px;
-        width: 310px;
+        width: 320px;
         cursor: text;
         &:after {
             content: "";
@@ -20,6 +20,6 @@
         }
     }
     &::ng-deep .mat-drawer-inner-container {
-      overflow: hidden;
+      overflow-x: hidden;
     }
 }
