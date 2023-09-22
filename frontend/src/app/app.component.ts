@@ -17,6 +17,7 @@ import { environment } from 'src/environments/environment';
 // Import Census AAS package
 import CensusAas  from '@census/vanilla-aas';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { ColorButtonComponent } from './components/color-button/color-button.component';
 
 const censusAas = new CensusAas({
   baseUrl: environment.baseUrl,
@@ -39,12 +40,13 @@ const censusAas = new CensusAas({
     RouterModule,
     NavComponent,
     ThemeButtonComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    ColorButtonComponent
   ],
 })
 export class AppComponent {
 
-  @Input() type: ThemePalette = 'warn';
+  @Input() type: ThemePalette | 'success' = 'success';
   @HostBinding('class')
   get hostClass() {
     return `${this.type}-root`
@@ -89,5 +91,6 @@ export class AppComponent {
       left: `${event.rectangle.left}px`,
       width: `${event.rectangle.width}px`,
     };
+    userInfo?.classList.remove('small_image');
   };
 }

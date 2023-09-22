@@ -21,6 +21,19 @@
     /* creates padding around scroll thumb */
 }
   .dark-theme {
+    *::-webkit-scrollbar-track {
+        background: mat.get-color-from-palette($color, 200);
+        /* color of the tracking area */
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: mat.get-color-from-palette($color, 600);
+        /* color of the scroll thumb */
+        border-radius: 20px;
+        /* roundness of the scroll thumb */
+        border: 2px solid mat.get-color-from-palette($color, 800);
+        /* creates padding around scroll thumb */
+    }
   }
 }
 
@@ -28,6 +41,7 @@
   $primary-color: mat.get-color-from-palette($color-config, primary);
   $accent-color: mat.get-color-from-palette($color-config, accent);
   $warn-color: mat.get-color-from-palette($color-config, warn);
+  $success-color: mat.get-color-from-palette($color-config, success);
 
   app-root.primary-root {
    @include _apply-app-root-styles($primary-color);
@@ -39,6 +53,10 @@
 
   app-root.warn-root {
     @include _apply-app-root-styles($warn-color);
+  }
+
+  app-root.success-root {
+    @include _apply-app-root-styles($success-color);
   }
 }
 

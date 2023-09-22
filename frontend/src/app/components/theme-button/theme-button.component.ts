@@ -25,7 +25,7 @@ export class ThemeButtonComponent {
     return `${this.type}-theme`
   };
 
-  themeColor: 'primary' | 'accent' | 'warn' = 'primary';
+  themeColor: 'primary' | 'accent' | 'warn' = 'warn';
   isDark = false;
 
   toggleTheme(event: any): void {

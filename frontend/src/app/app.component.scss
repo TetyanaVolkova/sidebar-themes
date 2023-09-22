@@ -20,6 +20,24 @@
         }
     }
     &::ng-deep .mat-drawer-inner-container {
-      overflow-x: hidden;
+      overflow: hidden;
     }
+}
+
+#nav_body {
+  height: calc(100% - 80px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#nav_footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+
+#primary_theme {
+  position: absolute;
+  top: 20%;
+  z-index: 999;
 }

@@ -1,9 +1,13 @@
 <mat-sidenav-container [hasBackdrop]="false" class="sidenav-container" autosize>
     <mat-sidenav #sidenav [mode]="'side'" opened="true" mwlResizable [ngStyle]="resizeStyle" (resizeEnd)="onResizeEnd($event)" mwlResizeHandle [resizeEdges]='{ right: true }'>
-        <app-user-info></app-user-info>
-        <app-nav></app-nav>
+        <div id="nav_body">
+          <app-user-info></app-user-info>
+          <app-nav></app-nav>
+        </div>
+        <div id="nav_footer"></div>
     </mat-sidenav>
     <mat-sidenav-content>
+        <app-color-button id="primary_theme"></app-color-button>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

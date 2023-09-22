@@ -32,7 +32,7 @@
       background-color: mat.get-color-from-palette($color, 800);
       color: mat.get-color-from-palette($color, 800-contrast);
             &:active {
-                color: mat.get-color-from-palette(mat.$blue-gray-palette, 900);
+                color: mat.get-color-from-palette(mat.$blue-gray-palette, 200);
             }
             &:hover {
               background-color: mat.get-color-from-palette($color, 900);
