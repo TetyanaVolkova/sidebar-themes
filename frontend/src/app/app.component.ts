@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component, HostBinding, Input, OnDestroy } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -18,6 +18,8 @@ import { environment } from 'src/environments/environment';
 import CensusAas  from '@census/vanilla-aas';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { ColorButtonComponent } from './components/color-button/color-button.component';
+import { MainService } from './services/main.service';
+import { Subject, takeUntil } from 'rxjs';
 
 const censusAas = new CensusAas({
   baseUrl: environment.baseUrl,
@@ -43,10 +45,12 @@ const censusAas = new CensusAas({
     UserInfoComponent,
     ColorButtonComponent
   ],
+  providers: [MainService]
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy{
 
-  @Input() type: ThemePalette | 'success' = 'success';
+  destroy$ = new Subject<boolean>();
+  type: ThemePalette | 'success';
   @HostBinding('class')
   get hostClass() {
     return `${this.type}-root`
@@ -55,7 +59,14 @@ export class AppComponent {
   resizeStyle: object = {};
   isOpen_YourVariable = true;
 
- constructor() {
+ constructor(private mainService: MainService) {
+
+    this.mainService.colorTheme$
+    .pipe(takeUntil(this.destroy$))
+    .subscribe((colorTheme) => {
+      console.log(colorTheme)
+      this.type = colorTheme;
+    });
     // censusAas.getUser(function (err: any, response: any) {
     //   if(err) {
     //     return;
@@ -63,6 +74,10 @@ export class AppComponent {
     //   console.log(response);
     // });
  }
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.complete();
+  }
   /**
     * Finalizes resize positions
     * (used for drawer/sidenav width)

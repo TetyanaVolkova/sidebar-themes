@@ -20,6 +20,18 @@
     border: 2px solid mat.get-color-from-palette($color, 200);
     /* creates padding around scroll thumb */
 }
+  #primary {
+    background: #a0d0fa;
+  }
+  #accent {
+    background: #ffcc80;
+  }
+  #warn {
+    background: #ef9a9a;
+  }
+  #success {
+    background: #c5e1a5;
+  }
   .dark-theme {
     *::-webkit-scrollbar-track {
         background: mat.get-color-from-palette($color, 200);
@@ -33,6 +45,18 @@
         /* roundness of the scroll thumb */
         border: 2px solid mat.get-color-from-palette($color, 800);
         /* creates padding around scroll thumb */
+    }
+    #primary {
+      background: #5d6b72;
+    }
+    #accent {
+      background: #318436;
+    }
+    #warn {
+      background: #b71c1c;
+    }
+    #success {
+      background: #018d7d;
     }
   }
 }

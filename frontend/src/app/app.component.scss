@@ -36,8 +36,23 @@
   bottom: 0px;
 }
 
-#primary_theme {
+#primary_theme, #accent_theme, #warn_theme, #success_theme {
   position: absolute;
-  top: 20%;
-  z-index: 999;
+  z-index: 99;
+}
+
+#primary_theme {
+  top: 50%;
+}
+
+#accent_theme {
+  top: 60%;
+}
+
+#warn_theme {
+  top: 70%;
+}
+
+#success_theme {
+  top: 80%;
 }

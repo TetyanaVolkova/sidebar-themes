@@ -19,7 +19,6 @@ import { Subject, takeUntil } from 'rxjs';
     MatCardModule,
     AsyncPipe
   ],
-  providers: [MainService],
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })

@@ -7,7 +7,10 @@
         <div id="nav_footer"></div>
     </mat-sidenav>
     <mat-sidenav-content>
-        <app-color-button id="primary_theme"></app-color-button>
+        <app-color-button [themeColor]="'primary'" id="primary_theme"></app-color-button>
+        <app-color-button [themeColor]="'accent'" id="accent_theme"></app-color-button>
+        <app-color-button [themeColor]="'warn'" id="warn_theme"></app-color-button>
+        <app-color-button [themeColor]="'success'" id="success_theme"></app-color-button>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
