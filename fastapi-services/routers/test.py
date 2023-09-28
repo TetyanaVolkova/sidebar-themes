@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from pydantic import BaseModel, Field
 
 router = APIRouter(
     tags=["static"],

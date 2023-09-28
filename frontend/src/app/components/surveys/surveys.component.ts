@@ -47,7 +47,7 @@ export class SurveysComponent {
   // Example load data from server
   onGridReady(params: GridReadyEvent) {
     this.http
-      .get<any[]>('https://www.ag-grid.com/example-assets/row-data.json')
+      .get<any[]>('http://localhost:8124/test/')
       .subscribe((data) => {
         let id = 1;
         data.forEach((element) => {

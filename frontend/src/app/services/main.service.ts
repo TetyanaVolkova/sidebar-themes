@@ -12,7 +12,6 @@ export class MainService {
   colorTheme$ = this.colorThemeStore.asObservable();
 
   setColorTheme(theme: ThemePalette | 'success'): void {
-    console.log(theme)
     this.colorThemeStore.next(theme);
   }
 }
